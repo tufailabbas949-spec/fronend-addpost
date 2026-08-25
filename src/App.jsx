@@ -6,6 +6,9 @@ function App() {
 
   return (
    <>
+   <nav className="flex items-center justify-center text-3xl">
+    <Link to="/posts">posts</Link>
+   </nav>
    <Routes>
     
     <Route path="/" element={<CreateUser />} />
