@@ -7,7 +7,8 @@ function App() {
   return (
    <>
    <Routes>
-    <Route path="/create" element={<CreateUser />} />
+    
+    <Route path="/" element={<CreateUser />} />
     <Route path="/posts" element={<Feed/>} />
     <Route path="*" element={<Error />} />
     
