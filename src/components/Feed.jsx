@@ -7,10 +7,10 @@ const Feed = () => {
  useEffect(()=>{
 
     const apicall = async()=>{
-     const  res=   await axios.get(`${API_URL}`)
+     const  res=   await axios.get(`${API_URL}/posts`)
 
      console.log(res.data);
-      setDatas(res.data.all_post)
+      setDatas(res.data.all_post || [])
     }
      apicall()
  },[])

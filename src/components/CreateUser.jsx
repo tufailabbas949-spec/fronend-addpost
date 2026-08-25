@@ -10,7 +10,7 @@ const CreateUser = () => {
         console.log("handle submit")
         const formData = new FormData(e.target);
         try{
-        const response = await fetch(`${API_URL}`, {
+        const response = await fetch(`${API_URL}/create`, {
             method: "POST",
             body: formData,
         });
