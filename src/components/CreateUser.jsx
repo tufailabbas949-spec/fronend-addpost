@@ -8,6 +8,7 @@ const CreateUser = () => {
     const handle = async (e) => {
         e.preventDefault();
         console.log("handle submit")
+        
         const formData = new FormData(e.target);
         try{
         const response = await fetch(`${API_URL}/create`, {
