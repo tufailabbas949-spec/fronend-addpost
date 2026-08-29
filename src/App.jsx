@@ -14,7 +14,7 @@ function App() {
    <Routes>
     
     <Route path="/" element={<CreateUser />} />
-    <Route path="/posts" element={<Feed/>} />
+    <Route path="posts" element={<Feed/>} />
     <Route path="*" element={<Error />} />
     
    </Routes>

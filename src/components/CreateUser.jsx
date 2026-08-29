@@ -17,7 +17,7 @@ const CreateUser = () => {
         });
 
         const data = await response.json();
-         navi('/posts')
+         navi('posts')
     }catch(err){
         console.error(err)
     }
