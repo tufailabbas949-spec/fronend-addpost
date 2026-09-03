@@ -6,15 +6,33 @@ import { useNavigate } from 'react-router-dom'
 const Feed = () => {
     const navi = useNavigate()
     const [datas, setDatas] = useState([])
+    const [loding, setLoding] = useState(false)
+    const [progress, setProgress] = useState(0)
     const API_URL = import.meta.env.VITE_API_URL
     useEffect(() => {
 
         const apicall = async () => {
-            const res = await axios.get(`${API_URL}/posts`)
+            setLoding(true)
+            setProgress(50)
+            try {
+                const res = await axios.get(`${API_URL}/posts`)
+                setProgress(100)
+                console.log(res.data);
+                setDatas(res.data.all_post || [])
+                setTimeout(() => {
+                    setLoding(false)
+                    setProgress(0)
+                },500)
 
-            console.log(res.data);
-            setDatas(res.data.all_post || [])
+            } catch (err) {
+                console.log(err)
+                setLoding(false)
+                setProgress(0)
+            }
+
+
         }
+
         apicall()
     }, [])
     const deletes_call = async (id) => {
@@ -24,7 +42,17 @@ const Feed = () => {
         console.log(res)
     }
     return (
-        <div className='h-full w-screen items-center gap-3 justify-center flex flex-col p-5 md:flex-row md:flex-wrap bg-black'>
+
+        <div className='h-full w-screen items-center gap-3 justify-center flex flex-col p-5 md:p-10 md:flex-row md:flex-wrap bg-black'>
+
+            {loding && (
+                <div className="fixed top-0 left-0 z-50 h-1 w-full overflow-hidden">
+                    <div
+                        className="h-full bg-blue-500 transition-all duration-500"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
+            )}
             {
                 datas.map((data) => {
                     return (
