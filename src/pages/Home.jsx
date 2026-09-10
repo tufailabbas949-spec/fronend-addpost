@@ -28,7 +28,7 @@ const Home = () => {
     <>
     <div className='w-full h-full flex flex-col items-center justify-center gap-5 sm:flex-row flex-wrap p-10 overflow-y-auto pb-30'>
       {data.map((post) => (
-        <PostCard key={post._id} showDelete={false} username={post.createdBy.username} title={post.title} image={post.Image} content={post.content} />
+        <PostCard key={post._id} showDelete={false} username={post.createdBy?.username || "unkown user"} title={post.title} image={post.Image} content={post.content} />
       ))}
     </div>
     </>
