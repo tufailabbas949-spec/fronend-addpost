@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
 const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     axios
-      .get(`${API_URL}auth/me`, {
+      .get(`${API_URL}/auth/me`, {
         withCredentials: true,
       })
       .then(() => {
