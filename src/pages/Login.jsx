@@ -8,22 +8,23 @@ const Login = () => {
     const loginCheck = async (e) => {
         e.preventDefault()
         const API_URL = import.meta.env.VITE_API_URL;
-        try{
+        try {
             console.log(e.target)
-        const formdata = new FormData(e.target)
-        const email = formdata.get("email");
-        const password = formdata.get("password");
-        const res =  await axios.post(`${API_URL}/login/user`, {
-            email,
-            password,
-        }, {
-            withCredentials: true
-        })
-         console.log(res.data);
-         navi("/home")
-        }catch(err){
+            const formdata = new FormData(e.target)
+            const email = formdata.get("email");
+            const password = formdata.get("password");
+            const res = await axios.post(`${API_URL}/login/user`, {
+                email,
+                password,
+            }, {
+                withCredentials: true
+            })
+            console.log(res.data);
+            navi("/home")
+        } catch (err) {
             console.log(err)
         }
+    
     }
     return (
         <>

@@ -1,5 +1,4 @@
 import { Route, Routes, } from "react-router-dom"
-import Error from "./pages/Error.jsx"
 import FeedPostAll from "./pages/FeedPostALL.jsx"
 import Login from "./pages/Login.jsx"
 import SingUp from "./pages/SingUp.jsx"
@@ -10,6 +9,7 @@ import UserProfile from "./pages/UserProfile.jsx"
 import UserUpadate from "./pages/UserUpadate.jsx"
 import Layout from "./pages/Layout.jsx"
 import SearchUser from "./pages/SerachUser.jsx"
+
 function App() {
 
 

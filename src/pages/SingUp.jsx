@@ -22,10 +22,7 @@ const SingUp = () => {
             navi("/")
         } catch (err) {
             console.error(err.message)
-        
-
-
-    }
+        }}
     return (
         <div className='w-screen h-screen flex flex-col bg-gray-300 items-center justify-center  '>
 
@@ -45,6 +42,6 @@ const SingUp = () => {
             </div>
         </div>
     )
-}
+
 }
 export default SingUp
