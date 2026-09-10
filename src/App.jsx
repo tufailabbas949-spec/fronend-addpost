@@ -1,24 +1,37 @@
-import {Route, Routes,Link} from "react-router-dom"
-import CreateUser from "./components/CreateUser.jsx"
-import Feed from "./components/Feed.jsx"
-import Error from "./components/Error.jsx"
-
+import { Route, Routes, } from "react-router-dom"
+import Error from "./pages/Error.jsx"
+import FeedPostAll from "./pages/FeedPostALL.jsx"
+import Login from "./pages/Login.jsx"
+import SingUp from "./pages/SingUp.jsx"
+import Home from "./pages/Home.jsx"
+import Createpost from "./pages/Createpost.jsx"
+import ProtectedRoute from "./components/Protected.jsx"
+import UserProfile from "./pages/UserProfile.jsx"
+import UserUpadate from "./pages/UserUpadate.jsx"
+import Layout from "./pages/Layout.jsx"
+import SearchUser from "./pages/SerachUser.jsx"
 function App() {
- 
+
 
   return (
-   <>
-   <nav className="flex items-center justify-center text-3xl">
-    <Link to="/posts">posts</Link>
-   </nav>
-   <Routes>
-    
-    <Route path="/" element={<CreateUser />} />
-    <Route path="posts" element={<Feed/>} />
-    <Route path="*" element={<Error />} />
-    
-   </Routes>
-   </>
+    <>
+      <Routes>
+        {/* <Route path="/" element={<h1>app runing</h1>} ></Route> */}
+        <Route path="/" element={<Login />} />
+        <Route path="/singup" element={<SingUp />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route element={<Layout />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/searchuser" element={<SearchUser />} />
+            <Route path="/user/profile" element={<UserProfile />} />
+            <Route path="/userupdate" element={<UserUpadate />} />
+            <Route path="/create/post" element={<Createpost />} />
+            <Route path="/all_post" element={<FeedPostAll />} />
+          </Route>
+        </Route>
+      </Routes>
+    </>
   )
 }
 
